@@ -18,6 +18,10 @@ public class MultipleChoiceQuestion extends Question {
 		
 	}
 	
+	public String[] getChoices() {
+		return this.choices; 
+	}
+	
 	@Override //goes to subclass instead of the super class
 	public void displayPrompt() {
 		//FIXME
@@ -37,7 +41,12 @@ public class MultipleChoiceQuestion extends Question {
 		System.out.println(super.getPrompt() + "(" + this.getPoints() + " points)");
 
 		
+		for(int i = 0; i < choices.length; i++) {
+			System.out.println(i + 1 + ". " + choices[i]);
+		}
+		
 	}
+	
 	
 	
 	

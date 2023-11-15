@@ -4,13 +4,27 @@ public class SelectAllQuestion extends MultipleChoiceQuestion {
 
 	public SelectAllQuestion(String prompt, String answer, String[] choices) {
 		//Hint: 1 point per choice
+		
+		super(prompt, answer, choices.length, choices);
+		
 		//FIXME
 	}
 	
 	public int checkAnswer(String givenAnswer) {
 		//FIXME Should return partial credit (if earned)!
-		return 0;
+		
+		int tracker = 0;
+		
+		for(int i = 1; i <= super.getChoices().length; i++) {
+			if(givenAnswer.contains(i+ "") && super.getAnswer().contains(i + "")) {
+				tracker++;
+			}
+			
+		}
+		
+				return tracker;
 	}
+	
 	
 	public static void main(String[] args) {
 		String[] choices = {"instance variables", "git", "methods", "eclipse"};
